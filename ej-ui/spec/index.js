@@ -1,50 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Homepage from './Homepage'
 import {
 	BrowserRouter as Router,
 	Route
 } from 'react-router-dom'
+import 'normalize.css';
+import RootLayout from "./RootLayout";
+import Homepage from "./Homepage";
+import AboutUs from "./AboutUs";
+import Blog from "./Blog";
+import Register from "./Register";
 
-const HomePage = () => (
+
+const Container = () => (
 	<div>
-		<Homepage />
+		<Route exact path="/" component={Homepage}/>
+		<Route path="/aboutus" component={AboutUs}/>
+		<Route path="/blog" component={Blog}/>
+		<Route path="/register" component={Register}/>
 	</div>
 )
-
-const AboutUs = () => (
-	<div>
-		<Homepage />
-		<h1>AboutUs</h1>
-	</div>
-)
-
-const Blog = () => (
-	<div>
-		<Homepage />
-		<h1>Blog</h1>
-	</div>
-)
-
-const Register = () => (
-	<div>
-		<Homepage />
-		<h1>Register</h1>
-	</div>
-)
-
 // Root Level
 const Root = () => (
 	<Router>
 		<div>
-			<Route exact path="/" component={HomePage}/>
-			<Route path="/aboutus" component={AboutUs}/>
-			<Route path="/blog" component={Blog}/>
-			<Route path="/register" component={Register}/>
+			<RootLayout container={Container}></RootLayout>
 		</div>
 	</Router>
 )
-
 ReactDOM.render(<Root />, document.getElementById('spec'));
 
 

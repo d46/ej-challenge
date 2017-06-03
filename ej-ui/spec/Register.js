@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 class Root extends Component {
 	render() {
 		return (
-			<h1>Home Page</h1>
+			<h1>Register</h1>
 		);
 	}
 }
