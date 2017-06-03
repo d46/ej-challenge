@@ -1,0 +1,73 @@
+{
+  "name": "ej-ui",
+  "version": "1.0.0",
+  "description": "ej-challange ui. Power by React and Material Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daghan Gunay",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "core-js": "^2.4.0",
+    "ramda": "^0.23.0",
+    "react-css-themr": "^2.1.2",
+    "react-style-proptype": "^3.0.0",
+    "react-transition-group": "^1.1.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cfonts": "^1.1.3",
+    "css-loader": "^0.28.2",
+    "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "git-dirty": "^1.0.2",
+    "glob": "^7.1.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rimraf": "^0.2.1",
+    "identity-obj-proxy": "^3.0.0",
+    "internal-ip": "^1.2.0",
+    "normalize.css": "^7.0.0",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-each": "^0.10.0",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.5",
+    "postcss-mixins": "^6.0.0",
+    "postcss-nesting": "^4.0.1",
+    "postcss-reporter": "^3.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.0",
+    "react-addons-test-utils": "^15.5.0",
+    "react-dom": "^15.5.0",
+    "react-test-renderer": "^15.5.0",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4",
+    "redbox-react": "^1.3.6",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.0",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.18.0"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.0",
+    "prop-types": "^15.5.7",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
+    "react-transition-group": "^1.1.3"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "start": "node ./server"
+}
