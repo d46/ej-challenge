@@ -9,7 +9,7 @@ import RootLayout from "./RootLayout";
 import Homepage from "./Homepage";
 import AboutUs from "./AboutUs";
 import Blog from "./Blog";
-import Register from "./Register";
+import Member from "./Member";
 
 
 const Container = () => (
@@ -17,7 +17,7 @@ const Container = () => (
 		<Route exact path="/" component={Homepage}/>
 		<Route path="/aboutus" component={AboutUs}/>
 		<Route path="/blog" component={Blog}/>
-		<Route path="/register" component={Register}/>
+		<Route path="/member" component={Member}/>
 	</div>
 )
 // Root Level

@@ -30,8 +30,8 @@ class RootLayout extends Component {
 					<Link to="/blog">
 						<Button label="Blog" neutral inverse/>
 					</Link>
-					<Link to="/register">
-						<Button label="Register" neutral inverse/>
+					<Link to="/member">
+						<Button label="Member" neutral inverse/>
 					</Link>
 				</AppBar>
 				<Panel className={style.app}>

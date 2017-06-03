@@ -1,13 +1,13 @@
 /* global VERSION */
 import 'normalize.css';
 import React, {Component} from 'react';
-import {Button} from "../components/button/index";
+import { Button } from '../components/button';
 
 class Root extends Component {
 	render() {
 		return (
 			<section>
-				<h1>Home Page</h1>
+				<h1>For The Horde</h1>
 				<p>
 					Draenor, the homeworld of the orcs, is being torn apart by a mysterious force known as fel magic. Gul'dan, a powerful orc warlock, unites the orc clans and forms the Horde, and creates a portal to the world of Azeroth. The orcs begin to use fel magic to drain the life out of captive draenei in order to sustain the portal. Once it is operational, Gul'dan leads a small warband to capture prisoners on Azeroth and sacrifice them to bring the rest of the Horde through the portal. Durotan, the chieftain of the Frostwolf Clan, his pregnant mate Draka, and his friend Orgrim Doomhammer join this initial warband. While crossing through the portal, Draka goes into labor. When the orcs arrive on Azeroth, Gul'dan assists Draka with giving birth, but the baby is stillborn. Gul'dan then drains the life out of a nearby deer to revive and infuse fel magic into the baby, which Durotan later names Go'el.
 				</p>
@@ -35,6 +35,7 @@ class Root extends Component {
 				<br/>
 				<br/>
 			</section>
+
 		);
 	}
 }
