@@ -6,6 +6,7 @@ import {Layout} from '../components/layout';
 import AppBar from '../components/app_bar';
 import {Button} from '../components/button';
 import style from './style.css';
+import Link from "react-router-dom/es/Link";
 
 class Root extends Component {
 	render() {
@@ -14,14 +15,22 @@ class Root extends Component {
 				<AppBar
 					title={`Homepage`}
 					className={style.appbar}
-					leftIcon="menu"
 					fixed
 					flat
 				>
-					<Button href="/" label="Homepage" neutral inverse/>
-					<Button href="/aboutus" label="AboutUs" neutral inverse/>
-					<Button href="/blog" label="Blog" neutral inverse/>
-					<Button href="/register" label="Blog" neutral inverse/>
+					<Link to="/">
+						<Button label="Homepage" neutral inverse/>
+					</Link>
+
+					<Link to="/aboutus">
+						<Button label="AboutUs" neutral inverse/>
+					</Link>
+					<Link to="/blog">
+						<Button label="Blog" neutral inverse/>
+					</Link>
+					<Link to="/register">
+						<Button label="Register" neutral inverse/>
+					</Link>
 				</AppBar>
 
 			</Layout>
