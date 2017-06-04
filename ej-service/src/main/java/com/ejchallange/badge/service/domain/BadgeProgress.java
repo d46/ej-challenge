@@ -30,10 +30,4 @@ public class BadgeProgress {
 		this.user = user;
 	}
 
-//	public BadgeProgress(String badgeAction, User user) {
-//		Badge badge = this.badgeRepository.findOneByAction(badgeAction);
-//		this.badge = badge;
-//		this.user = user;
-//	}
-
 }
