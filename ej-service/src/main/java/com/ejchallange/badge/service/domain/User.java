@@ -29,6 +29,8 @@ public class User {
 
 	private String[] roles;
 
+	private int totalScore;
+
 	public void setPassword(String password) {
 		this.password = PASSWORD_ENCODER.encode(password);
 	}
