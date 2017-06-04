@@ -8,6 +8,9 @@ import com.ejchallange.badge.service.repository.BadgeRepository;
 import com.ejchallange.badge.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,8 +33,13 @@ public class BadgeSeed implements CommandLineRunner {
 	public void run(String... strings) throws Exception {
 
 		//Create dummy user
-		User dummy = new User("hello","1");
+		User dummy = new User("hello","1","ROLE_MANAGER");
 		this.userRepository.save(dummy);
+
+		SecurityContextHolder.getContext().setAuthentication(
+			new UsernamePasswordAuthenticationToken("hello", "1",
+				AuthorityUtils.createAuthorityList("ROLE_MANAGER")));
+
 
 
 		//Create Badge
@@ -51,6 +59,8 @@ public class BadgeSeed implements CommandLineRunner {
 			 dummy
 		 );
 		 this.badeProgressRepository.save(badgeProgress1);
+
+		SecurityContextHolder.clearContext();
 
 
 	}

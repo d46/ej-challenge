@@ -27,6 +27,8 @@ public class User {
 	private @JsonIgnore
 	String password;
 
+	private String[] roles;
+
 	public void setPassword(String password) {
 		this.password = PASSWORD_ENCODER.encode(password);
 	}
@@ -36,9 +38,10 @@ public class User {
 	}
 
 	//Construct for user model
-	public User(String username, String password) {
+	public User(String username, String password, String... roles) {
 		this.username = username;
 		this.setPassword(password);
+		this.roles = roles;
 	}
 
 }
