@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 const app = express();
 const compiler = webpack(config);
-const port = 8080;
+const port = 8081;
 const ip = internalIp.v4();
 
 app.use(require('webpack-dev-middleware')(compiler, {
