@@ -3,7 +3,7 @@ package com.ejchallange.badge.service;
 import com.ejchallange.badge.service.domain.Badge;
 import com.ejchallange.badge.service.domain.BadgeProgress;
 import com.ejchallange.badge.service.domain.User;
-import com.ejchallange.badge.service.repository.BadeProgressRepository;
+import com.ejchallange.badge.service.repository.BadgeProgressRepository;
 import com.ejchallange.badge.service.repository.BadgeRepository;
 import com.ejchallange.badge.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +18,14 @@ public class BadgeSeed implements CommandLineRunner {
 
 	private final BadgeRepository badgeRepository;
 
-	private final BadeProgressRepository badeProgressRepository;
+	private final BadgeProgressRepository badgeProgressRepository;
 
 	private final UserRepository userRepository;
 
 	@Autowired
-	public BadgeSeed(BadgeRepository badgeRepository, BadeProgressRepository badeProgressRepository,UserRepository userRepository) {
+	public BadgeSeed(BadgeRepository badgeRepository, BadgeProgressRepository badgeProgressRepository, UserRepository userRepository) {
 		this.badgeRepository = badgeRepository;
-		this.badeProgressRepository = badeProgressRepository;
+		this.badgeProgressRepository = badgeProgressRepository;
 		this.userRepository = userRepository;
 	}
 
@@ -33,7 +33,7 @@ public class BadgeSeed implements CommandLineRunner {
 	public void run(String... strings) throws Exception {
 
 		//Create dummy user
-		User dummy = new User("hello","1","ROLE_MANAGER");
+		User dummy = new User("hello","1",0,"ROLE_MANAGER");
 		this.userRepository.save(dummy);
 
 		SecurityContextHolder.getContext().setAuthentication(
@@ -43,7 +43,7 @@ public class BadgeSeed implements CommandLineRunner {
 
 
 		//Create Badge
-		Badge clicker = new Badge("Clicker", 33,"CLICKER");
+		Badge clicker = new Badge("Clicker", 33,"CLICKER",66);
 		this.badgeRepository.save(clicker);
 
 
@@ -51,14 +51,14 @@ public class BadgeSeed implements CommandLineRunner {
 		BadgeProgress badgeProgress = new BadgeProgress(
 			clicker,
 			dummy);
-		 this.badeProgressRepository.save(badgeProgress);
+		 this.badgeProgressRepository.save(badgeProgress);
 
 		 Badge clicker1 = this.badgeRepository.findByAction("CLICKER");
 		 BadgeProgress badgeProgress1 = new BadgeProgress(
 			 clicker1,
 			 dummy
 		 );
-		 this.badeProgressRepository.save(badgeProgress1);
+		 this.badgeProgressRepository.save(badgeProgress1);
 
 		SecurityContextHolder.clearContext();
 

@@ -10,5 +10,5 @@ import java.util.List;
 public interface UserRepository extends Repository<User, Long> {
 	User save(User user);
 	User findByUsername(String username);
-	List<User> findFirstByTotalScore();
+	List<User> findFirstByTotalScore(int size);
 }

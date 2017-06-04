@@ -40,9 +40,10 @@ public class User {
 	}
 
 	//Construct for user model
-	public User(String username, String password, String... roles) {
+	public User(String username, String password, int totalScore, String... roles) {
 		this.username = username;
 		this.setPassword(password);
+		this.totalScore = totalScore;
 		this.roles = roles;
 	}
 

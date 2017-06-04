@@ -20,12 +20,15 @@ public class Badge {
 
 	private String action;
 
+	private Integer scoreForBadge;
+
 	protected Badge() {
 	}
 
-	public Badge(String name, Integer score, String action) {
+	public Badge(String name, Integer score, String action, Integer scoreForBadge) {
 		this.name = name;
 		this.score = score;
 		this.action = action;
+		this.scoreForBadge = scoreForBadge;
 	}
 }
