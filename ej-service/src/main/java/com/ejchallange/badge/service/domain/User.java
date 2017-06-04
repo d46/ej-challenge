@@ -27,10 +27,12 @@ public class User {
 	private @JsonIgnore
 	String password;
 
-
-
 	public void setPassword(String password) {
 		this.password = PASSWORD_ENCODER.encode(password);
+	}
+
+	protected User() {
+
 	}
 
 	//Construct for user model
