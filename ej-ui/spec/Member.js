@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {Button} from '../components/button';
 import {Input} from "../components/input/index";
 import Cookies from 'universal-cookie';
-import rest from "rest";
+import User from "./models/User"
 
 class Member extends Component {
 
@@ -14,11 +14,17 @@ class Member extends Component {
 		this.loginPasswordChange = this.loginPasswordChange.bind(this)
 		this.registerUsernameChange = this.registerUsernameChange.bind(this)
 		this.registerPasswordChange = this.registerPasswordChange.bind(this)
+		this.login = this.login.bind(this)
 	}
 
 	componentWillMount() {
 		this.state = {
-			loginStatus: false
+			loginStatus: false,
+			loginUsername: "",
+			loginPassword: "",
+			registerUsername: "",
+			registerPassword: ""
+
 		}
 	}
 
@@ -183,6 +189,7 @@ class Member extends Component {
 		)
 	}
 
+	//TODO: Check startup login
 	checkLogin() {
 		const cookies = new Cookies();
 		if (cookies.get('JSESSIONID')) {
@@ -192,31 +199,22 @@ class Member extends Component {
 		} else {
 			this.setState = false
 		}
-		console.log(this.state.loginStatus);
 	}
 
 	login() {
-		rest({
-			method: "POST",
-			path: "http://localhost:8080/login",
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-			mixin: {
-				withCredentials: true
-			},
-			entity: 'username=hello&password=1&submit=Login'
-		}).then(function (response) {
-			console.log('response: ', response);
-			rest({
-				method: "GET",
-				path: "http://localhost:8080/api/badges",
-				mixin: {
-					withCredentials: true
-				}
-			}).then(function (response) {
-				console.log('response: ', response);
-			});
 
-		});
+		new User({
+			username:this.state.loginUsername,
+			password:this.state.loginPassword
+		}).fetch().then(function (response) {
+			//TODO: Change status code 200 to success login
+			//TODO: Also control wrong login attemption
+			if (response.status.code == 404){
+				this.setState({
+					loginStatus:true
+				})
+			}
+		}.bind(this))
 
 	}
 

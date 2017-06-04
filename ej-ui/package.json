@@ -9,6 +9,7 @@
   "author": "Daghan Gunay",
   "license": "ISC",
   "dependencies": {
+    "backbone-model": "^1.0.10",
     "classnames": "^2.2.5",
     "core-js": "^2.4.0",
     "ramda": "^0.23.0",
