@@ -3,7 +3,7 @@ import 'normalize.css';
 import React, {Component} from 'react';
 import {Button} from "../components/button/index";
 
-class Root extends Component {
+class Blog extends Component {
 	render() {
 		return (
 			<section>
@@ -39,4 +39,4 @@ class Root extends Component {
 	}
 }
 
-export default Root;
+export default Blog;
