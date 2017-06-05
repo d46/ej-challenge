@@ -62,7 +62,7 @@ class RootLayout extends Component {
 	}
 
 	handleScroll = (event) => {
-		if ($(event.currentTarget).find(">div").offset().top * -1 > $(document).height() * 70 / 100 && this.state.scrollCheck) {
+		if ($(event.currentTarget).find(">div").offset().top * -1 > $(document).height() * 50 / 100 && this.state.scrollCheck) {
 			this.state.scrollCheck = false;
 			badgeProgress.set({
 				action: "SCROLLER"
