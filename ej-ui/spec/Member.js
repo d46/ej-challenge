@@ -234,8 +234,6 @@ class Member extends Component {
 			username: this.state.loginUsername,
 			password: this.state.loginPassword
 		}).login().then(function (response) {
-			//TODO: Change status code 200 to success login
-			//TODO: Also control wrong login attemption
 			if (response.status.code == 200) {
 				this.setState({
 					loginStatus: true
@@ -272,8 +270,6 @@ class Member extends Component {
 			username: this.state.registerUsername,
 			password: this.state.registerPassword
 		}).register().then(function (response) {
-			//TODO: Change status code 200 to success login
-			//TODO: Also control wrong login attemption
 			if (response.status.code == 200) {
 				this.setState({
 					loginStatus: true
