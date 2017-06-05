@@ -1,4 +1,8 @@
 #Startup project
+
+##Docker compose
+`docker-compose up`
+
 ###Serve ej-ui
 
 `cd ej-ui`
