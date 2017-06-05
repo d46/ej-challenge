@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,6 +22,7 @@ public class User {
 	@GeneratedValue
 	Long id;
 
+	@Column(unique = true)
 	private String username;
 
 	//Ignores to send a hashed password
