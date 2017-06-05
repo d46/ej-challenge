@@ -1,10 +1,10 @@
-#Startup project
+# Startup project
 
-##Docker compose
+## Docker compose
 
 `docker-compose up`
 
-###Serve ej-ui
+### Serve ej-ui
 
 `cd ej-ui`
 
