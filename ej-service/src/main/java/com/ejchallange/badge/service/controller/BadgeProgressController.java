@@ -77,18 +77,4 @@ public class BadgeProgressController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 
-
-	@RequestMapping(value = "/name", method = RequestMethod.GET)
-	@ResponseBody
-	public String getName(Authentication authentication) {
-		return authentication.getName();
-	}
-
-
-	@RequestMapping(value = "/me", method = RequestMethod.GET)
-	@ResponseBody
-	public User getUser(Authentication authentication) {
-		return this.userRepository.findByUsername(authentication.getName());
-	}
-
 }
