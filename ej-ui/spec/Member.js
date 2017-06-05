@@ -201,8 +201,6 @@ class Member extends Component {
 		)
 	}
 
-	//TODO: Check startup login
-
 	login() {
 		let valid;
 		valid = this.validation(
