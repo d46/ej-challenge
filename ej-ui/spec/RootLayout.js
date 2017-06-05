@@ -54,7 +54,8 @@ class RootLayout extends Component {
 			}
 		}).then((response) => {
 			user.set({
-				isAuthenticated: false
+				//TODO: Spring security do not logout
+				// isAuthenticated: false
 			})
 		});
 
