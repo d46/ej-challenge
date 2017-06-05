@@ -76,6 +76,8 @@ class User extends Model {
 		}.bind(this))
 	}
 
+
+
 }
 
 export let user = new User();

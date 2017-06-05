@@ -18,22 +18,21 @@ class TopList extends Component {
 	componentWillMount() {
 		rest({
 			method: "GET",
-			path: "http://localhost:8080/reports/topList",
+			path: "http://localhost:8080/reports/badges",
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			mixin: {
 				withCredentials: true
 			}
 		}).then((response) => {
 			this.setState({
-				topList: JSON.parse(response.entity)[0].content
+				badges: JSON.parse(response.entity)
 			})
 		});
 	}
 
 	state = {
-		topList: []
+		badges: []
 	};
-
 
 	render() {
 		return (
@@ -42,11 +41,11 @@ class TopList extends Component {
 				<div style={listStyle}>
 					<List selectable ripple>
 						<div>
-							{ this.state.topList.map((row, index) => (
+							{ this.state.badges.map((row, index) => (
 								<ListItem key={index}
 										  avatar="https://avatars2.githubusercontent.com/u/559654?v=3&s=460"
-										  caption={row.username}
-										  legend={row.totalScore + ""}
+										  caption={row.name}
+										  legend={row.score + ""}
 								/>
 							))}
 						</div>
@@ -55,6 +54,7 @@ class TopList extends Component {
 			</section>
 		);
 	}
+
 }
 
 export default TopList;

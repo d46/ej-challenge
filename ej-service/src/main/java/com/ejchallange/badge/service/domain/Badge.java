@@ -2,6 +2,7 @@ package com.ejchallange.badge.service.domain;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ public class Badge {
 
 	private Integer score;
 
+	@Column(unique = true)
 	private String action;
 
 	private Integer scoreForBadge;

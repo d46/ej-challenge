@@ -10,6 +10,8 @@ import Homepage from "./Homepage";
 import AboutUs from "./AboutUs";
 import Blog from "./Blog";
 import Member from "./Member";
+import TopList from "./TopList";
+import Me from "./Me";
 import {user} from "./models/User"
 
 
@@ -20,6 +22,8 @@ const Container = () => (
 		<Route path="/aboutus" component={AboutUs}/>
 		<Route path="/blog" component={Blog}/>
 		<Route path="/member" component={Member}/>
+		<Route path="/topList" component={TopList}/>
+		<Route path="/me" component={Me}/>
 	</div>
 )
 // Root Level

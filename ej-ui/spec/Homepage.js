@@ -3,8 +3,19 @@ import 'normalize.css';
 import React, {Component} from 'react';
 import {Button} from "../components/button/index";
 import {user} from "./models/User";
+import {badgeProgress} from "./models/BadgeProgress"
 
 class Homepage extends Component {
+	constructor(props) {
+		super(props)
+		this.handleClickler = this.handleClickler.bind(this);
+	}
+
+	handleClickler() {
+		badgeProgress.set({
+			action: "CLICKER"
+		}).record();
+	}
 
 	render() {
 		return (
@@ -48,7 +59,7 @@ class Homepage extends Component {
 					burns Khadgar's research when Khadgar offers to help him with his work.
 				</p>
 				<br/>
-				<Button label='Clicker' raised primary/>
+				<Button label='Clicker' onRippleEnded={this.handleClickler} raised primary/>
 				<br/>
 				<br/>
 				<p>
@@ -88,7 +99,7 @@ class Homepage extends Component {
 					human.
 				</p>
 				<br/>
-				<Button style={{float: 'right'}} label='Clicker' raised primary/>
+				<Button style={{float: 'right'}} label='Clicker' onRippleEnded={this.handleClickler} raised primary/>
 				<br/>
 				<br/>
 			</section>
@@ -98,7 +109,6 @@ class Homepage extends Component {
 	renderUserMessage() {
 		return user.get('isAuthenticated')
 	}
-
 
 }
 

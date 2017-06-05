@@ -8,6 +8,9 @@ import com.ejchallange.badge.service.repository.BadgeProgressRepository;
 import com.ejchallange.badge.service.repository.BadgeRepository;
 import com.ejchallange.badge.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -43,7 +46,7 @@ public class BadgeProgressController {
 			List<BadgeProgress> badgeProgresses = this.badgeProgressRepository.findByUserAndBadge(user, badge);
 			int actionSize = badgeProgresses.size();
 			int score = actionSize * badge.getScore();
-			if (score > badge.getScoreForBadge()) {
+			if (score >= badge.getScoreForBadge()) {
 				badgeDtos.add(new BadgeDto(score, badge.getName()));
 			}
 		}
@@ -54,7 +57,8 @@ public class BadgeProgressController {
 	@RequestMapping(value = "/topList", method = RequestMethod.GET)
 	@ResponseBody
 	public List<User> getTopList() {
-		return this.userRepository.findFirstByTotalScore(10);
+		Pageable topTen = new PageRequest(0, 10, Sort.Direction.ASC, "totalScore");
+		return this.userRepository.findAll(topTen);
 	}
 
 	//Create badge action

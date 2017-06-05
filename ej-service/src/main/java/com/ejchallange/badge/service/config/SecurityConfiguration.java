@@ -32,6 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.addFilterBefore(new CORSFilter(), ChannelProcessingFilter.class)
 			.authorizeRequests()
 			.antMatchers("/register").permitAll()
+			.antMatchers("/reports/topList").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()

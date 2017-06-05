@@ -45,6 +45,22 @@ public class BadgeSeed implements CommandLineRunner {
 		//Create Badge
 		Badge clicker = new Badge("Clicker", 33,"CLICKER",66);
 		this.badgeRepository.save(clicker);
+		this.badgeRepository.save(clicker);
+		this.badgeRepository.save(clicker);
+
+		Badge scroller = new Badge("Scroller", 60,"SCROLLER",60);
+		this.badgeRepository.save(scroller);
+		this.badgeRepository.save(scroller);
+
+		Badge explorer = new Badge("Explorer", 40,"EXPLORER",80);
+		this.badgeRepository.save(explorer);
+		this.badgeRepository.save(explorer);
+		this.badgeRepository.save(explorer);
+		this.badgeRepository.save(explorer);
+		this.badgeRepository.save(explorer);
+
+		Badge expectant = new Badge("Expectant",60,"EXPECTANT",120);
+		this.badgeRepository.save(expectant);
 
 
 //		Create badgeAction
@@ -59,7 +75,7 @@ public class BadgeSeed implements CommandLineRunner {
 			 dummy
 		 );
 		 this.badgeProgressRepository.save(badgeProgress1);
-
+		SecurityContextHolder.getContext();
 		SecurityContextHolder.clearContext();
 
 
