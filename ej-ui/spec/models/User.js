@@ -7,13 +7,45 @@ class User extends Model {
 	defaults() {
 		return {
 			username: '',
-			password: ''
+			password: '',
+			totalScore: 0,
+			isAuthenticated: false
 		}
 	}
 
 	toXwf() {
 		let json = this.toJSON()
 		return xwf(json)
+	}
+
+
+	checkStatus() {
+		return new Promise(function (resolve, reject) {
+			rest({
+				method: "GET",
+				path: "http://localhost:8080/",
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				mixin: {
+					withCredentials: true
+				}
+			}).then((response) => {
+				if (response.status.code == 200) {
+					try {
+						let entity = JSON.parse(response.entity);
+						this.set({
+							username: entity.username,
+							totalScore: entity.totalScore,
+							isAuthenticated: true
+						})
+					} catch (err) {
+						this.set({
+							isAuthenticated: false
+						})
+					}
+					resolve(response)
+				}
+			});
+		}.bind(this))
 	}
 
 	login() {
@@ -26,7 +58,7 @@ class User extends Model {
 					withCredentials: true
 				},
 				entity: this.toXwf()
-			}).then((response)=> resolve(response));
+			}).then((response) => resolve(response));
 		}.bind(this))
 	}
 
@@ -40,10 +72,10 @@ class User extends Model {
 					withCredentials: true
 				},
 				entity: this.toXwf()
-			}).then((response)=> resolve(response));
+			}).then((response) => resolve(response));
 		}.bind(this))
 	}
 
 }
 
-export default User;
+export let user = new User();

@@ -3,8 +3,7 @@ import 'normalize.css';
 import React, {Component} from 'react';
 import {Button} from '../components/button';
 import {Input} from "../components/input/index";
-import Cookies from 'universal-cookie';
-import User from "./models/User"
+import {user} from "./models/User"
 import {Snackbar} from "../components/snackbar/index";
 
 class Member extends Component {
@@ -21,7 +20,7 @@ class Member extends Component {
 
 	componentWillMount() {
 		this.state = {
-			loginStatus: false,
+			loginStatus: user.get('isAuthenticated'),
 			loginUsername: "",
 			loginPassword: "",
 			registerUsername: "",
@@ -203,16 +202,6 @@ class Member extends Component {
 	}
 
 	//TODO: Check startup login
-	checkLogin() {
-		const cookies = new Cookies()
-		if (cookies.get('JSESSIONID')) {
-			this.setState({
-				loginStatus: true
-			})
-		} else {
-			this.setState = false
-		}
-	}
 
 	login() {
 		let valid;
@@ -230,7 +219,7 @@ class Member extends Component {
 		if (!valid) {
 			return valid;
 		}
-		new User({
+		user.set({
 			username: this.state.loginUsername,
 			password: this.state.loginPassword
 		}).login().then(function (response) {
@@ -238,12 +227,14 @@ class Member extends Component {
 				this.setState({
 					loginStatus: true
 				})
+				user.set("isAuthenticated",true)
 			}
 			if(response.status.code == 302){
 				this.setState({
 					snackbarMsg: "Your login attempt was not successful, try again.",
 					snackbarActive: true
 				})
+				user.set("isAuthenticated",false)
 			}
 		}.bind(this))
 
@@ -266,7 +257,7 @@ class Member extends Component {
 			return valid;
 		}
 
-		new User({
+		user.set({
 			username: this.state.registerUsername,
 			password: this.state.registerPassword
 		}).register().then(function (response) {
@@ -305,7 +296,6 @@ class Member extends Component {
 	}
 
 	handleSnackbarClick = (event, instance) => {
-		console.log('handleSnackbarClick', event, instance);
 		this.setState({snackbarActive: false})
 	}
 

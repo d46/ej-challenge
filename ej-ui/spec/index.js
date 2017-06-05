@@ -10,6 +10,8 @@ import Homepage from "./Homepage";
 import AboutUs from "./AboutUs";
 import Blog from "./Blog";
 import Member from "./Member";
+import {user} from "./models/User"
+
 
 
 const Container = () => (
@@ -28,6 +30,10 @@ const Root = () => (
 		</div>
 	</Router>
 )
-ReactDOM.render(<Root />, document.getElementById('spec'));
+
+user.checkStatus().then(function () {
+	ReactDOM.render(<Root />, document.getElementById('spec'));
+})
+
 
 
