@@ -3,13 +3,13 @@
 # Build for docker
 `docker-composer build`
 
-#Exist Badges
+# Exist Badges
 - SCROLLER
 - CLICKER
 - EXPLORER
 - EXPECTANT
 
-##Know Issues
+## Know Issues
 - Logout
 - Page scroll reset
 - SCROLLER badge percentage
