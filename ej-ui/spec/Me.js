@@ -37,7 +37,7 @@ class TopList extends Component {
 	render() {
 		return (
 			<section>
-				<h5>User Top List</h5>
+				<h5>User Badges</h5>
 				<div style={listStyle}>
 					<List selectable ripple>
 						<div>

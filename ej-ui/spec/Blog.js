@@ -7,12 +7,12 @@ import {badgeProgress} from "./models/BadgeProgress"
 class Blog extends Component {
 	constructor(props) {
 		super(props)
-		this.handleClickler = this.handleClickler.bind(this);
+		this.handleClicker = this.handleClicker.bind(this);
 	}
 
-	handleClickler() {
+	handleClicker() {
 		badgeProgress.set({
-			action: "CLICKLER"
+			action: "CLICKER"
 		}).record();
 	}
 
@@ -32,7 +32,7 @@ class Blog extends Component {
 					Anduin, Khadgar, and Medivh join a scouting team following traces of fel magic, but are ambushed by orcs. Medivh uses a spell to kill the fel-corrupted orcs, leaving the Horde's warchief, Blackhand, to flee along with Durotan and Orgrim. Khadgar restrains a half-orc slave, Garona, and the soldiers take her prisoner. King Llane frees Garona in exchange for loyalty to Stormwind, and she leads the humans to spy on the orc camp, where they learn of Gul'dan's plan to bring the Horde to Azeroth. Meanwhile, Durotan realizes that the fel magic is responsible for the destruction of Draenor, and if Gul'dan is not thwarted, Azeroth will suffer the same fate. Despite Orgrim's objections, Durotan invites Llane to a secret meeting so that the Frostwolf Clan and the humans can unite to defeat Gul'dan. While studying the book he took from Karazhan, Khadgar learns that Gul'dan could not have opened the portal on his own; he had help from someone on Azeroth. He is confronted by Medivh, who burns Khadgar's research when Khadgar offers to help him with his work.
 				</p>
 				<br/>
-				<Button label='Clicker' onRippleEnded={this.handleClickler} raised primary />
+				<Button label='Clicker' onRippleEnded={this.handleClicker} raised primary />
 				<br/>
 				<br/>
 				<p>
@@ -43,7 +43,7 @@ class Blog extends Component {
 					Llane leads the human army in an assault on the orc camp, while Anduin and Khadgar fight Medivh and destroy the demon that had begun to manifest on the outside. Medivh is left mortally wounded, and uses the last of his strength to close the portal to Draenor and instead open a portal to Stormwind, allowing Llane to evacuate most of the freed prisoners. When Medivh eventually dies, the portal closes, leaving Llane, Garona and a small number of human soldiers to fight the orcs. Llane secretly orders Garona to kill him, bringing her honor among the orcs and putting her in a position of power to bring peace between the two races. Garona reluctantly does so, and is welcomed into the Horde by Gul'dan. As the orcs celebrate, Lothar arrives to retrieve King Llane's body and discovers Garona's knife still in Llane's neck, realizing that it was she who had killed their king. Blackhand challenges Lothar to Mak'gora, and Lothar quickly disposes of him. Against Gul'dan's demands, the orcs, bound by tradition, allow Lothar to depart with Llane's body. At Llane's funeral in Stormwind, the leaders of the other human nations, along with the high elves and dwarves, proclaim an alliance against the orcs and rally behind Lothar as the leader of the Alliance forces. Elsewhere, Orgrim takes one of Durotan's tusks to one day give to Go'el, and the basket containing Go'el is found by a human.
 				</p>
 				<br/>
-				<Button style={{float: 'right'}} onRippleEnded={this.handleClickler} label='Clicker' raised primary />
+				<Button style={{float: 'right'}} onRippleEnded={this.handleClicker} label='Clicker' raised primary />
 				<br/>
 				<br/>
 			</section>

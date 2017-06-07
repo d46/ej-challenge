@@ -8,10 +8,10 @@ import {badgeProgress} from "./models/BadgeProgress"
 class Homepage extends Component {
 	constructor(props) {
 		super(props)
-		this.handleClickler = this.handleClickler.bind(this);
+		this.handleClicker = this.handleClicker.bind(this);
 	}
 
-	handleClickler() {
+	handleClicker() {
 		badgeProgress.set({
 			action: "CLICKER"
 		}).record();
@@ -59,7 +59,7 @@ class Homepage extends Component {
 					burns Khadgar's research when Khadgar offers to help him with his work.
 				</p>
 				<br/>
-				<Button label='Clicker' onRippleEnded={this.handleClickler} raised primary/>
+				<Button label='Clicker' onRippleEnded={this.handleClicker} raised primary/>
 				<br/>
 				<br/>
 				<p>
@@ -99,7 +99,7 @@ class Homepage extends Component {
 					human.
 				</p>
 				<br/>
-				<Button style={{float: 'right'}} label='Clicker' onRippleEnded={this.handleClickler} raised primary/>
+				<Button style={{float: 'right'}} label='Clicker' onRippleEnded={this.handleClicker} raised primary/>
 				<br/>
 				<br/>
 			</section>

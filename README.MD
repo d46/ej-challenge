@@ -1,5 +1,13 @@
 # Startup project
 `docker-compose up`
+# Build for docker
+`docker-composer build`
+
+#Exist Badges
+- SCROLLER
+- CLICKER
+- EXPLORER
+- EXPECTANT
 
 ##Know Issues
 - Logout
