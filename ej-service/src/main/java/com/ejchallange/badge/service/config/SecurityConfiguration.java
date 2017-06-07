@@ -1,6 +1,6 @@
 package com.ejchallange.badge.service.config;
 
-import com.ejchallange.badge.service.domain.User;
+import com.ejchallange.badge.service.domain.Manager;
 import com.ejchallange.badge.service.filter.CORSFilter;
 import com.ejchallange.badge.service.service.SpringDataJpaUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 			.userDetailsService(this.userDetailsService)
-			.passwordEncoder(User.PASSWORD_ENCODER);
+			.passwordEncoder(Manager.PASSWORD_ENCODER);
 	}
 
 	@Override

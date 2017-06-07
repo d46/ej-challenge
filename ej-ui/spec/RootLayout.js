@@ -27,6 +27,7 @@ class RootLayout extends Component {
 	}
 
 	componentWillReceiveProps() {
+		$('[data-react-toolbox="panel"]').scrollTop(0);
 		if(this.state.timeOut != true){
 			clearTimeout(this.state.timeOut)
 		}
@@ -71,12 +72,13 @@ class RootLayout extends Component {
 	}
 
 	pageChange() {
+
 		this.state.scrollCheck = true
 		//Reset Viewport Scroll :bug:
 		badgeProgress.set({
 			action: "EXPLORER"
 		}).record();
-		$('[data-react-toolbox="panel"]').scrollTop(0);
+
 	}
 
 	render() {

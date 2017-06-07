@@ -2,11 +2,11 @@ package com.ejchallange.badge.service.controller;
 
 import com.ejchallange.badge.service.domain.Badge;
 import com.ejchallange.badge.service.domain.BadgeProgress;
-import com.ejchallange.badge.service.domain.User;
+import com.ejchallange.badge.service.domain.Manager;
 import com.ejchallange.badge.service.dto.BadgeDto;
 import com.ejchallange.badge.service.repository.BadgeProgressRepository;
 import com.ejchallange.badge.service.repository.BadgeRepository;
-import com.ejchallange.badge.service.repository.UserRepository;
+import com.ejchallange.badge.service.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +31,7 @@ public class BadgeProgressController {
 	@Autowired
 	private BadgeRepository badgeRepository;
 	@Autowired
-	private UserRepository userRepository;
+	private ManagerRepository managerRepository;
 
 	@RequestMapping(value = "/badges", method = RequestMethod.GET)
 	@ResponseBody
@@ -39,11 +39,11 @@ public class BadgeProgressController {
 
 		//Calculate stats
 		List<BadgeDto> badgeDtos = new ArrayList<>();
-		User user = this.userRepository.findByUsername(authentication.getName());
+		Manager manager = this.managerRepository.findByUsername(authentication.getName());
 		Iterable<Badge> badges = this.badgeRepository.findAll();
 
 		for (Badge badge : badges) {
-			List<BadgeProgress> badgeProgresses = this.badgeProgressRepository.findByUserAndBadge(user, badge);
+			List<BadgeProgress> badgeProgresses = this.badgeProgressRepository.findByManagerAndBadge(manager, badge);
 			int actionSize = badgeProgresses.size();
 			int score = actionSize * badge.getScore();
 			if (score >= badge.getScoreForBadge()) {
@@ -56,9 +56,9 @@ public class BadgeProgressController {
 
 	@RequestMapping(value = "/topList", method = RequestMethod.GET)
 	@ResponseBody
-	public List<User> getTopList() {
+	public List<Manager> getTopList() {
 		Pageable topTen = new PageRequest(0, 10, Sort.Direction.ASC, "totalScore");
-		return this.userRepository.findAll(topTen);
+		return this.managerRepository.findAll(topTen);
 	}
 
 	//Create badge action
@@ -66,15 +66,15 @@ public class BadgeProgressController {
 	@ResponseBody
 	public ResponseEntity record(Authentication authentication, String action) {
 
-		User user = this.userRepository.findByUsername(authentication.getName());
+		Manager manager = this.managerRepository.findByUsername(authentication.getName());
 		Badge badge = this.badgeRepository.findByAction(action);
 
 		//Update user totalScore
-		user.setTotalScore(user.getTotalScore() + badge.getScore());
-		this.userRepository.save(user);
+		manager.setTotalScore(manager.getTotalScore() + badge.getScore());
+		this.managerRepository.save(manager);
 
 		//Create new badge action
-		BadgeProgress badgeProgress = new BadgeProgress(badge, user);
+		BadgeProgress badgeProgress = new BadgeProgress(badge, manager);
 		this.badgeProgressRepository.save(badgeProgress);
 
 		//Return 200

@@ -1,6 +1,7 @@
 package com.ejchallange.badge.service.service;
 
-import com.ejchallange.badge.service.repository.UserRepository;
+import com.ejchallange.badge.service.domain.Manager;
+import com.ejchallange.badge.service.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -12,17 +13,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringDataJpaUserDetailsService implements UserDetailsService {
 
-	private final UserRepository userRepository;
+	private final ManagerRepository managerRepository;
 
 	@Autowired
-	public SpringDataJpaUserDetailsService(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public SpringDataJpaUserDetailsService(ManagerRepository managerRepository) {
+		this.managerRepository = managerRepository;
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		com.ejchallange.badge.service.domain.User user = this.userRepository.findByUsername(username);
-		return new User(user.getUsername(), user.getPassword(),
-			AuthorityUtils.createAuthorityList(user.getRoles()));
+		Manager manager = this.managerRepository.findByUsername(username);
+		return new User(manager.getUsername(), manager.getPassword(),
+			AuthorityUtils.createAuthorityList(manager.getRoles()));
 	}
 }

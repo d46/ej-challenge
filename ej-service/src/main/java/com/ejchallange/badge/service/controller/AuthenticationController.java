@@ -1,7 +1,7 @@
 package com.ejchallange.badge.service.controller;
 
-import com.ejchallange.badge.service.domain.User;
-import com.ejchallange.badge.service.repository.UserRepository;
+import com.ejchallange.badge.service.domain.Manager;
+import com.ejchallange.badge.service.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,26 +25,26 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthenticationController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private ManagerRepository managerRepository;
 
 	@ResponseBody
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public User Index(Authentication authentication) {
-		return this.userRepository.findByUsername(authentication.getName());
+	public Manager Index(Authentication authentication) {
+		return this.managerRepository.findByUsername(authentication.getName());
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public User Register(HttpServletRequest request) {
+	public Manager Register(HttpServletRequest request) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		User user = new User(username, password,0,"ROLE_MANAGER");
+		Manager manager = new Manager(username, password,0,"ROLE_MANAGER");
 		SecurityContextHolder.getContext().setAuthentication(
 			new UsernamePasswordAuthenticationToken(username, "1",
 				AuthorityUtils.createAuthorityList("ROLE_MANAGER")));
-		this.userRepository.save(user);
+		this.managerRepository.save(manager);
 		SecurityContextHolder.clearContext();
-		return user;
+		return manager;
 	}
 
 	@ResponseBody
@@ -54,6 +54,7 @@ public class AuthenticationController {
 		SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
 		cookieClearingLogoutHandler.logout(request, response, null);
 		securityContextLogoutHandler.logout(request, response, null);
+		SecurityContextHolder.getContext().setAuthentication(null);
 
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}

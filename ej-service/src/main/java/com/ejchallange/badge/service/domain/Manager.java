@@ -6,20 +6,17 @@ import lombok.ToString;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @ToString(exclude = "password")
 @Entity
-public class User {
+public class Manager {
 
 	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
 	private @Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long id;
 
 	@Column(unique = true)
@@ -37,12 +34,12 @@ public class User {
 		this.password = PASSWORD_ENCODER.encode(password);
 	}
 
-	protected User() {
+	protected Manager() {
 
 	}
 
 	//Construct for user model
-	public User(String username, String password, int totalScore, String... roles) {
+	public Manager(String username, String password, int totalScore, String... roles) {
 		this.username = username;
 		this.setPassword(password);
 		this.totalScore = totalScore;

@@ -1,18 +1,15 @@
 package com.ejchallange.badge.service.domain;
 
 import lombok.Data;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 @Data
 public class BadgeProgress {
 
 	private @Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long id;
 
 
@@ -20,14 +17,14 @@ public class BadgeProgress {
 	Badge badge;
 
 	private @ManyToOne
-	User user;
+	Manager manager;
 
 	protected BadgeProgress() {
 	}
 
-	public BadgeProgress(Badge badge, User user) {
+	public BadgeProgress(Badge badge, Manager manager) {
 		this.badge = badge;
-		this.user = user;
+		this.manager = manager;
 	}
 
 }

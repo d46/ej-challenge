@@ -261,7 +261,8 @@ class Member extends Component {
 		}).register().then(function (response) {
 			if (response.status.code == 200) {
 				this.setState({
-					loginStatus: true
+					snackbarMsg: "Successfully registered. Try login!",
+					snackbarActive: true
 				})
 			}
 			if (response.status.code == 500) {
