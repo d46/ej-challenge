@@ -1,10 +1,33 @@
-version: '2'
+version: '3'
 services:
-  mypostgres:
+
+  psql:
+    container_name: psql
+    hostname: postgres
     image: postgres
     ports:
      - "5432:5432"
     environment:
+     - DEBUG=true
      - POSTGRES_PASSWORD=password
      - POSTGRES_USER=postgres
-     - POSTGRES_DB=mydb
+     - POSTGRES_DB=ejdb
+
+  service:
+    container_name: service
+    build: ./ej-service
+    hostname: app
+    ports:
+     - "8080:8080"
+    command: ["./wait-for-postgres.sh", "postgres:5432", "--", "mvn", "spring-boot:run"]
+    links:
+      - psql:postgres
+
+  ui:
+    container_name: ui
+    build: ./ej-ui
+    ports:
+     - "8081:8081"
+    command: ["./wait-for-service.sh", "app:8080", "--", "npm", "start"]
+    links:
+     - service:app
