@@ -23,7 +23,8 @@ class RootLayout extends Component {
 
 	state = {
 		scrollCheck: true,
-		timeOut:true
+		timeOut:true,
+		type:null
 	}
 
 	componentWillReceiveProps() {
@@ -33,7 +34,7 @@ class RootLayout extends Component {
 		}
 		this.state.timeOut = setTimeout(function () {
 			badgeProgress.set({
-				action: "EXPECTANT"
+				actionName: `EXPECTANT_${this.state.type}`
 			}).record();
 			this.setState({
 				timeOut : true
@@ -66,17 +67,19 @@ class RootLayout extends Component {
 		if ($(event.currentTarget).find(">div").offset().top * -1 > $(document).height() * 50 / 100 && this.state.scrollCheck) {
 			this.state.scrollCheck = false;
 			badgeProgress.set({
-				action: "SCROLLER"
+				actionName: `SCROLLER_${this.state.type}`
 			}).record();
 		}
 	}
 
-	pageChange() {
-
+	pageChange(type) {
+		this.setState({
+			type:type
+		})
 		this.state.scrollCheck = true
 		//Reset Viewport Scroll :bug:
 		badgeProgress.set({
-			action: "EXPLORER"
+			actionName: `EXPLORER_${type}`
 		}).record();
 
 	}
@@ -91,28 +94,28 @@ class RootLayout extends Component {
 					flat
 				>
 					<Link to="/">
-						<Button label="Home Page" onRippleEnded={this.pageChange} neutral inverse/>
+						<Button label="Home Page" onRippleEnded={()=>{this.pageChange("1")}} neutral inverse/>
 					</Link>
 					<Link to="/aboutus">
-						<Button label="About Us" onRippleEnded={this.pageChange} neutral inverse/>
+						<Button label="About Us" onRippleEnded={()=>{this.pageChange("2")}} neutral inverse/>
 					</Link>
 					<Link to="/toplist">
-						<Button label="Top List" onRippleEnded={this.pageChange} neutral inverse/>
+						<Button label="Top List" onRippleEnded={()=>{this.pageChange("3")}} neutral inverse/>
 					</Link>
 					<Link to="/blog">
-						<Button label="Blog" onRippleEnded={this.pageChange} neutral inverse/>
+						<Button label="Blog" onRippleEnded={()=>{this.pageChange("4")}} neutral inverse/>
 					</Link>
 
 					{user.get('isAuthenticated') ?
 						<div>
 							<Link to="/me">
-								<Button label="Me" onRippleEnded={this.pageChange} neutral inverse/>
+								<Button label="Me" onRippleEnded={()=>{this.pageChange("5")}} neutral inverse/>
 							</Link>
-							<Button label="Logout" onRippleEnded={this.logout} neutral inverse/>
+							<Button label="Logout" onRippleEnded={()=>{this.pageChange("6")}} neutral inverse/>
 						</div>
 						:
 						<Link to="/member">
-							<Button label="Member" neutral inverse/>
+							<Button label="Member" onRippleEnded={()=>{this.pageChange("7")}}   neutral inverse/>
 						</Link>
 					}
 

@@ -1,4 +1,4 @@
-package com.ejchallange.badge.service;
+package com.ejchallenge.badge.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

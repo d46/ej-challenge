@@ -45,7 +45,6 @@ class TopList extends Component {
 								<ListItem key={index}
 										  avatar="https://avatars2.githubusercontent.com/u/559654?v=3&s=460"
 										  caption={row.name}
-										  legend={row.score + ""}
 								/>
 							))}
 						</div>

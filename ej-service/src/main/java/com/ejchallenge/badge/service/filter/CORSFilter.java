@@ -1,4 +1,4 @@
-package com.ejchallange.badge.service.filter;
+package com.ejchallenge.badge.service.filter;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

@@ -13,7 +13,7 @@ class Homepage extends Component {
 
 	handleClicker() {
 		badgeProgress.set({
-			action: "CLICKER"
+			actionName: "CLICKER_3"
 		}).record();
 	}
 
@@ -98,8 +98,6 @@ class Homepage extends Component {
 					takes one of Durotan's tusks to one day give to Go'el, and the basket containing Go'el is found by a
 					human.
 				</p>
-				<br/>
-				<Button style={{float: 'right'}} label='Clicker' onRippleEnded={this.handleClicker} raised primary/>
 				<br/>
 				<br/>
 			</section>

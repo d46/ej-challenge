@@ -22,7 +22,7 @@ const Container = () => (
 		<Route path="/aboutus" component={AboutUs}/>
 		<Route path="/blog" component={Blog}/>
 		<Route path="/member" component={Member}/>
-		<Route path="/topList" component={TopList}/>
+		<Route path="/topList"  component={TopList}/>
 		<Route path="/me" component={Me}/>
 	</div>
 )

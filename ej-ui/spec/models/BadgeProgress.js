@@ -5,7 +5,7 @@ import xwf from "../utils/json2xwf"
 class BadgeProgress extends Model {
 	defaults() {
 		return {
-			action: ''
+			actionName: ''
 		}
 	}
 	toXwf() {

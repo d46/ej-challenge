@@ -8,12 +8,14 @@ class AboutUs extends Component {
 
 	constructor(props) {
 		super(props)
+		console.log(props);
 		this.handleClicker = this.handleClicker.bind(this);
 	}
 
 	handleClicker() {
+
 		badgeProgress.set({
-			action: "CLICKER"
+			actionName: "CLICKER_1"
 		}).record();
 	}
 
@@ -57,8 +59,6 @@ class AboutUs extends Component {
 					opened the portal on his own; he had help from someone on Azeroth. He is confronted by Medivh, who
 					burns Khadgar's research when Khadgar offers to help him with his work.
 				</p>
-				<br/>
-				<Button label='Clicker' onRippleEnded={this.handleClicker} raised primary/>
 				<br/>
 				<br/>
 				<p>

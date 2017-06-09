@@ -12,7 +12,7 @@ class Blog extends Component {
 
 	handleClicker() {
 		badgeProgress.set({
-			action: "CLICKER"
+			actionName: "CLICKER_2"
 		}).record();
 	}
 
@@ -31,8 +31,6 @@ class Blog extends Component {
 				<p>
 					Anduin, Khadgar, and Medivh join a scouting team following traces of fel magic, but are ambushed by orcs. Medivh uses a spell to kill the fel-corrupted orcs, leaving the Horde's warchief, Blackhand, to flee along with Durotan and Orgrim. Khadgar restrains a half-orc slave, Garona, and the soldiers take her prisoner. King Llane frees Garona in exchange for loyalty to Stormwind, and she leads the humans to spy on the orc camp, where they learn of Gul'dan's plan to bring the Horde to Azeroth. Meanwhile, Durotan realizes that the fel magic is responsible for the destruction of Draenor, and if Gul'dan is not thwarted, Azeroth will suffer the same fate. Despite Orgrim's objections, Durotan invites Llane to a secret meeting so that the Frostwolf Clan and the humans can unite to defeat Gul'dan. While studying the book he took from Karazhan, Khadgar learns that Gul'dan could not have opened the portal on his own; he had help from someone on Azeroth. He is confronted by Medivh, who burns Khadgar's research when Khadgar offers to help him with his work.
 				</p>
-				<br/>
-				<Button label='Clicker' onRippleEnded={this.handleClicker} raised primary />
 				<br/>
 				<br/>
 				<p>

@@ -1,7 +1,7 @@
-package com.ejchallange.badge.service.service;
+package com.ejchallenge.badge.service.service;
 
-import com.ejchallange.badge.service.domain.Manager;
-import com.ejchallange.badge.service.repository.ManagerRepository;
+import com.ejchallenge.badge.service.domain.Manager;
+import com.ejchallenge.badge.service.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;

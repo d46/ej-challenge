@@ -1,8 +1,8 @@
-package com.ejchallange.badge.service.config;
+package com.ejchallenge.badge.service.config;
 
-import com.ejchallange.badge.service.domain.Manager;
-import com.ejchallange.badge.service.filter.CORSFilter;
-import com.ejchallange.badge.service.service.SpringDataJpaUserDetailsService;
+import com.ejchallenge.badge.service.domain.Manager;
+import com.ejchallenge.badge.service.filter.CORSFilter;
+import com.ejchallenge.badge.service.service.SpringDataJpaUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

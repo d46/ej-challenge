@@ -1,4 +1,4 @@
-package com.ejchallange.badge.service.domain;
+package com.ejchallenge.badge.service.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

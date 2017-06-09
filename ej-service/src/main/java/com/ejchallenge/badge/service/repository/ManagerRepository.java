@@ -1,6 +1,6 @@
-package com.ejchallange.badge.service.repository;
+package com.ejchallenge.badge.service.repository;
 
-import com.ejchallange.badge.service.domain.Manager;
+import com.ejchallenge.badge.service.domain.Manager;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
